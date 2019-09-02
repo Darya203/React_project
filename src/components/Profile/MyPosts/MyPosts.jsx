@@ -12,6 +12,7 @@ let newPost=React.createRef();
 const addPost=()=>{
   let textPost=newPost.current.value;
   props.AddPost(textPost);
+  newPost.current.value='';
  
 }
 

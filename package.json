@@ -2,7 +2,7 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://darya203.github.io/react-gh-pages",
+  "homepage": "http://darya203.github.io/React_project",
   "dependencies": {
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
@@ -15,7 +15,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-  "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
