@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+  /* font-family: 'Montserrat', sans-serif; */
+  font-family: 'Lato', sans-serif;
+  color:#6d6e71;
+}
+
+.app-wrapper {
+
+  display: grid;
+  width:1200px;
+  margin:0 auto;
+
+  grid-template-areas: 
+  "h h"
+  "nav content ";
+
+  grid-template-rows: 60px 2fr;
+  grid-template-columns: 2fr 8fr;
+  grid-gap: 10px; 
+
+}
+
+.app-wrapper-content{
+    grid-area: content;
+    
+}

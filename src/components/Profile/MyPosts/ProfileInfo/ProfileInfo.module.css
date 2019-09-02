@@ -1,0 +1,40 @@
+/* .profileWrapperImage{
+    width:100%; 
+    min-height: 150px;
+    background-image: url(https://cdn.pixabay.com/photo/2017/11/28/23/43/forest-2984960_960_720.jpg);
+
+}  */
+
+.profileUser{
+    display: grid;
+    min-height: 170px;
+    grid-template-areas:
+    "ava info";
+    grid-template-columns: 4fr 9fr;
+}
+
+.profileUser_Avatar{
+    grid-area: ava;
+ 
+}
+.profileUser_Avatar img{
+    width:100%;
+    height:100%;
+    padding-left:10px;
+    
+}
+
+.profileUser_info{
+    grid-area: info;
+}
+
+.profileUser_info span{
+    display: block;
+    font-size: 24px;
+    padding-left: 20px;
+    padding-top: 5px;
+}
+
+.profileUser_info p{
+  padding: 5px 20px;
+}
