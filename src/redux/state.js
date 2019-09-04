@@ -1,4 +1,4 @@
-import {rerenderEntireTree} from './../render';
+import { rerenderEntireTree } from './../render';
 
 
 let state = {
@@ -7,7 +7,8 @@ let state = {
       { id: 1, message: 'Hello how are you?', likesCount: 12 },
       { id: 2, message: "It's my first post", likesCount: 2 },
       { id: 3, message: 'Very good acount. Like', likesCount: 3 }
-    ]
+    ],
+    newPostText :'' 
   },
 
   dialogsPage: {
@@ -21,20 +22,56 @@ let state = {
     messages: [
       { id: 1, message: 'Hi honey, how are you doing???? Long time no see. Where have you been?', name: 'Diana Johns', image: "https://99px.ru/sstorage/53/2017/04/tmb_195671_1033.jpg" },
       { id: 2, message: 'I have been on vacation', name: 'Sarah Cruiz', image: "http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg" }
-    ]
+    ],
+    newMessageText:''
 
   }
 
 }
 
-export let AddPost = (postMessage) => {
+window.state=state;
+
+//Добавляем пост in Profile-MyPosts-Post
+export let AddPost = () => {
   let newPost = {
     id: 5,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likesCount: 0
   };
 
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText='';
+
   rerenderEntireTree(state);
 }
+
+//Переписываем пост in Profile-MyPosts-Post
+export let UpdateNewPost = (newText) => {
+  state.profilePage.newPostText=newText;
+  rerenderEntireTree(state);
+} 
+
+
+
+//добавляем новое сообщение в Dialogs
+export let AddMessage = () => {
+  let newMessage = {
+    id: 3,
+    message: state.dialogsPage.newMessageText,
+    name: 'Sarah Cruiz',
+    image: "http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg"
+  }
+
+  state.dialogsPage.messages.push(newMessage);
+  state.profilePage.newMessageText='';
+  rerenderEntireTree(state);
+
+}
+
+export let UpdateNewMessage = (newMessage) => {
+  state.dialogsPage.newMessageText=newMessage;
+  rerenderEntireTree(state);
+}
+
+
 export default state;

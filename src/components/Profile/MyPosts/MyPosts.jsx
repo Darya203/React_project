@@ -5,40 +5,42 @@ import Post from './Post/Post';
 const MyPosts = (props) => {
 
 
-let postsElements=props.posts.map( (p)=>  <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
+  let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
 
-let newPost=React.createRef();
+  let newPost = React.createRef();
 
-const addPost=()=>{
-  let textPost=newPost.current.value;
-  props.AddPost(textPost);
-  newPost.current.value='';
- 
-}
+  let addPost = () => {
+    props.AddPost();
+  }
 
-
+  let onPostChange = () => {
+    let textPost = newPost.current.value;
+    console.log(textPost);
+    props.UpdateNewPost(textPost);
+  }
 
   return (
     <div className={classes.postsBlock}>
       My Post
              <div>
-                <div className={classes.formGroup}>
-                  <img src="http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg" alt="user_photo" />
-                  <textarea ref={newPost} className={classes.formControl} name="texts" cols="50" rows="1" placeholder="Write what you wish">
-                  </textarea>
-                </div>
+        <div className={classes.formGroup}>
 
-                <div>
-                   <button onClick={addPost} className={classes.btn_publish}>
-                     Publish
+          <img src="http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg" alt="user_photo" />
+          <textarea onChange={onPostChange} ref={newPost} className={classes.formControl} name="texts" cols="50" rows="1" value={props.newPostText} placeholder="Write what you wish" />
+
+        </div>
+
+        <div>
+          <button onClick={addPost} className={classes.btn_publish}>
+            Publish
                   </button>
-                </div>
+        </div>
 
-            </div>
+      </div>
 
       <div className={classes.posts}>
         {postsElements}
-        
+
       </div>
     </div>
   );
