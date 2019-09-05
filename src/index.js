@@ -10,9 +10,7 @@ import { tsPropertySignature } from '@babel/types';
 
  let rerenderEntireTree = (state)=>{
 ReactDOM.render(
-    <App state={state} AddPost={store.AddPost.bind(store)} UpdateNewPost={store.UpdateNewPost.bind(store)} 
-                        UpdateNewMessage={store.UpdateNewMessage.bind(store)} AddMessage={store.AddMessage.bind(store)}/>,
-                                document.getElementById('root')
+    <App state={state}  dispatch={store.dispatch.bind(store)}/>, document.getElementById('root')
         );
 }
 
