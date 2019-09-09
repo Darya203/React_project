@@ -1,23 +1,22 @@
 import React from 'react';
 import classes from './Message.module.css';
 import MessageCreate from './MessageCreate/MessageCreate';
-import {addMessageActionCreator,updateNewMessageActionCreator} from '../../../redux/state';
+import { addMessageActionCreator, updateNewMessageActionCreator } from '../../../redux/dialogs-reducer';
 
 const Message = (props) => {
 
-  
-  let messagesElements = props.data.dialogsPage.messages.map((m) =>
-    <MessageCreate  key={m.id} message={m.message} image={m.image} id={m.id} name={m.name} />)
 
-  let newMessage=React.createRef();
-  
-  let addMessage =()=>{
-      props.data.dispatch(addMessageActionCreator());
+  let messagesElements = props.store.getState().dialogsPage.messages.map((m) =>
+    <MessageCreate key={m.id} message={m.message} image={m.image} id={m.id} name={m.name} />)
+
+
+  let addMessage = () => {
+    props.store.dispatch(addMessageActionCreator());
   }
 
-  let onMessageChange=()=>{
-    let text=newMessage.current.value;
-      props.data.dispatch(updateNewMessageActionCreator(text));
+  let onMessageChange = (e) => {
+    let text = e.target.value;
+    props.store.dispatch(updateNewMessageActionCreator(text));
   }
 
   return (
@@ -28,7 +27,8 @@ const Message = (props) => {
 
       <div className={classes.formGroup}>
         <img src="http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg" alt="user_photo" />
-        <textarea ref={newMessage} className={classes.formControl} value={props.data.dialogsPage.newMessageText} onChange={onMessageChange} name="texts" cols="50" rows="1" placeholder="Write new message">
+        <textarea className={classes.formControl} value={props.store.getState().dialogsPage.newMessageText}
+          onChange={onMessageChange} name="texts" cols="50" rows="1" placeholder="Write new message">
         </textarea>
       </div>
 

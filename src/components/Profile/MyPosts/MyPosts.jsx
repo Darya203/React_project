@@ -1,18 +1,18 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Post from './Post/Post';
-import {addPostActionCreator, updateNewPostActionCreator} from './../../../redux/state';
+import { addPostActionCreator, updateNewPostActionCreator } from './../../../redux/profile-reducer';
 const MyPosts = (props) => {
 
   let postsElements = props.posts.map((p) => <Post key={p.id} message={p.message} likesCount={p.likesCount} />)
-  let newPost = React.createRef();
 
   let addPost = () => {
     props.dispatch(addPostActionCreator());
   }
 
-  let onPostChange = () => {
-    let textPost = newPost.current.value;
+  let onPostChange = (e) => {
+
+    let textPost = e.target.value;
     props.dispatch(updateNewPostActionCreator(textPost));
   }
 
@@ -23,7 +23,8 @@ const MyPosts = (props) => {
         <div className={classes.formGroup}>
 
           <img src="http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg" alt="user_photo" />
-          <textarea onChange={onPostChange} ref={newPost} className={classes.formControl} name="texts" cols="50" rows="1" value={props.newPostText} placeholder="Write what you wish" />
+          <textarea onChange={onPostChange} className={classes.formControl} name="texts" cols="50" rows="1"
+            value={props.newPostText} placeholder="Write what you wish" />
 
         </div>
 

@@ -5,7 +5,7 @@ import Message from './Message/Message';
 
 const Dialogs = (props) => {
  
-  let dialogsElements = props.dialogsPage.dialogs.map((dialog) => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} image={dialog.image}/>);
+  let dialogsElements = props.store.getState().dialogsPage.dialogs.map((dialog) => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} image={dialog.image}/>);
 
 
   return (
@@ -19,7 +19,7 @@ const Dialogs = (props) => {
          </div>
          
            <div className={classes.messages}>
-            <Message data={props} />
+            <Message store={props.store} />
            </div>
 
       </div>
