@@ -3,7 +3,18 @@ import { switchCase } from "@babel/types";
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST = 'UPDATE-NEW-POST';
 
-const profileReducer = (state, action) => {
+let initialState = {
+        posts: [
+            { id: 1, message: 'Hello how are you?', likesCount: 12 },
+            { id: 2, message: "It's my first post", likesCount: 2 },
+            { id: 3, message: 'Very good acount. Like', likesCount: 3 }
+        ],
+        newPostText: ''
+
+}
+
+const profileReducer = (state = initialState, action) => {
+ 
     switch (action.type) {
         case ADD_POST:
             let newPost = {

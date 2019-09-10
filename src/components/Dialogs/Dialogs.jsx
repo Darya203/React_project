@@ -4,8 +4,8 @@ import DialogItem from './DialogItem/DialogItem';
 import Message from './Message/Message';
 
 const Dialogs = (props) => {
- 
-  let dialogsElements = props.store.getState().dialogsPage.dialogs.map((dialog) => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} image={dialog.image}/>);
+
+  let dialogsElements = props.dialogs.map((dialog) => <DialogItem key={dialog.id} name={dialog.name} id={dialog.id} image={dialog.image}/>);
 
 
   return (
@@ -19,7 +19,8 @@ const Dialogs = (props) => {
          </div>
          
            <div className={classes.messages}>
-            <Message store={props.store} />
+            <Message messages={props.messages} newMessageText={props.newMessageText}
+                     addMessage={props.addMessage} updateNewMessage={props.updateNewMessage}/>
            </div>
 
       </div>
