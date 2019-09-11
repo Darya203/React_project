@@ -5,7 +5,7 @@ import UserOnline from './UserOnline/UserOnline';
 
 const Sidebar = (props) => {
 
-    let usersOnline = props.friends.map((f) => <UserOnline key={f.id} image={f.image} />)
+    let usersOnline = props.sidebarPage.friends.map((f) => <UserOnline key={f.id} image={f.image} />)
 
     return (
         <div className={classes.wrapper}>

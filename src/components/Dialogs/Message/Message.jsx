@@ -4,7 +4,7 @@ import MessageCreate from './MessageCreate/MessageCreate';
 
 const Message = (props) => {
 
-  let messagesElements = props.messages.map((m) =>
+  let messagesElements = props.dialogsPage.messages.map((m) =>
     <MessageCreate key={m.id} message={m.message} image={m.image} id={m.id} name={m.name} />)
 
 
@@ -28,7 +28,7 @@ const Message = (props) => {
 
       <div className={classes.formGroup}>
         <img src="http://img0.liveinternet.ru/images/attach/c/4/82/542/82542330_x_16faeac4.jpg" alt="user_photo" />
-        <textarea className={classes.formControl} value={props.newMessageText}
+        <textarea className={classes.formControl} value={props.dialogsPage.newMessageText}
           onChange={onMessageChange} name="texts" cols="50" rows="1" placeholder="Write new message">
         </textarea>
       </div>
