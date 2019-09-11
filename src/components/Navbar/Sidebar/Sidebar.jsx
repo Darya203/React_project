@@ -11,7 +11,7 @@ const Sidebar = (props) => {
         <div className={classes.wrapper}>
             <div className={classes.title}>
                 Online friends
-      </div>
+            </div>
             <div>
                 {usersOnline}
             </div>
