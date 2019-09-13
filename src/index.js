@@ -7,7 +7,6 @@ import store from "./redux/redux-store";
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 
-let rerenderEntireTree = () => {
 
     ReactDOM.render(
         <BrowserRouter>
@@ -17,13 +16,11 @@ let rerenderEntireTree = () => {
         </BrowserRouter>
         , document.getElementById('root')
     );
-}
 
-rerenderEntireTree();
 
-store.subscribe = () => {
-    rerenderEntireTree();
-}
+// store.subscribe = () => {
+//     rerenderEntireTree();
+// } // функция connect сама перерисовывает дерево локально ( subscribe внутри connect)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
