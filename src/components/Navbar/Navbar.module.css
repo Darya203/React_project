@@ -1,0 +1,40 @@
+nav{
+    grid-area: nav;
+    
+    /* background-color: burlywood; */
+  
+  }
+  
+  .item {
+      color: #fff;
+      font-size: 16px;
+      line-height: 1.5;
+      padding: 20px;
+      position: relative;
+  }
+
+  .item a.activeLink{
+    color: goldenrod;  
+  } 
+
+
+.item::after{
+  content: "";
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #f1f2f2;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+}  
+
+  .item a{
+    text-decoration: none;
+  }
+  .item a:hover{
+    /* text-decoration: underline; */
+    color: goldenrod;
+    transition-duration: 0.1s;
+
+    }
+  

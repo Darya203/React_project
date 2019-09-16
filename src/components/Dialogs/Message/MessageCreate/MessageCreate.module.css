@@ -1,0 +1,39 @@
+.message{
+  display:inline-block;
+  width:280px;
+  border:1px solid  #f1f2f2;
+  padding:5px 15px;
+  margin:5px;
+  text-align: left;
+  border-radius: 6px;
+}
+
+.message_user{
+  display:inline-block;
+  margin:0;
+}
+.message_user p{
+  font-size: 12px;
+  margin:0;
+}
+
+.message_right{
+  text-align: right;
+}
+
+.message_right img{
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+}
+
+
+.message_left{
+  text-align: left;
+}
+.message_left img{
+  width: 50px;
+  height: 50px;
+  border-radius: 40px;
+}
+
