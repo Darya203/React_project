@@ -14,15 +14,6 @@
    
 }
 
-.dialogs::before {
-    content: "";
-    display: block;
-    border-left: 1px solid #f1f2f2;
-    position: absolute;
-    height:420px;
-    left:690px;
-}
-
 
 .dialogsItems a:hover{
     /* text-decoration: underline; */
